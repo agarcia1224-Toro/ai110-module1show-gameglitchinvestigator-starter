@@ -26,17 +26,20 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+   # the games purpose is to guess which number the game picked
 - [ ] Detail which bugs you found.
+   # found several bugs like hints being backwards, negative scores, duplicate that override the check_guess, and difficulty ranges and attempts not adding up/makes no sense.
 - [ ] Explain what fixes you applied.
+   # applied fixed like removing the duplicate and importing the original function from logic_utils.py to the app.py, this fixed the negative score. fixing some logical errors in the app.py where diffuculty and ranges didnt scale with difficulty.
 
 ## 📸 Demo Walkthrough
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
+1. enter a guessing number in the box, this is dependent on what difficulty you are in 
+2. see if the hint is telling you higher or lower
+3. if higher, guess higher. If lower, guess lower
+4. if you won or lost, you can click new game to continue
 5. <!-- Add more steps as needed -->
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
@@ -44,9 +47,15 @@ Describe your fixed game in numbered steps so a reader can follow along without 
 ## 🧪 Test Results
 
 ```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.6.0
+plugins: anyio-4.15.1
+collected 3 items
+
+tests\test_game_logic.py ...                                             [100%]
+
+============================== 3 passed in 0.09s ==============================
+
 ```
 
 ## 🚀 Stretch Features
