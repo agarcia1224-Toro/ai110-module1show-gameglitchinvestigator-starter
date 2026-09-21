@@ -11,16 +11,28 @@ def parse_guess(raw: str):
     """
     raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
 
-
+#Fix: the hints should work correctly now
 def check_guess(guess, secret):
     """
     Compare guess to secret and return (outcome, message).
 
     outcome examples: "Win", "Too High", "Too Low"
     """
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+    secret_value = int(secret)
 
+    if guess == secret_value:
+        return "Win", "🎉 Correct!"
 
+    if guess > secret_value:
+        return "Too High", "📈 Go LOWER!"
+
+    return "Too Low", "📉 Go HIGHER!"
+
+# Fix: shared scoring logic prevents incorrect guesses from making the score negative.
 def update_score(current_score: int, outcome: str, attempt_number: int):
-    """Update score based on outcome and attempt number."""
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+    """Update score without allowing the score to become negative."""
+    if outcome == "Win":
+        points = max(10, 100 - 10 * (attempt_number + 1))
+        return current_score + points
+
+    return max(0, current_score)
